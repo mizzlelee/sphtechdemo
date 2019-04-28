@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SPHTech</string>
+    <string name="ok">OK</string>
+    <string name="dialog_message">Please Open wifi or 3g/4g to get Data</string>
+    <string name="dialog_title">No Internet</string>
+</resources>

@@ -69,8 +69,6 @@ public class Sqlite extends SQLiteOpenHelper {
                 Map<String, String> yeardata = new HashMap<String, String>();
                 String aaa = cursor.getString(cursor.getColumnIndex("year"));
                 String ccc = cursor.getString(cursor.getColumnIndex("SUM(volume_of_mobile_data)"));
-                Log.e("sqlite","get: " + aaa);
-                Log.e("sqlite","get3: " + ccc);
                 yeardata.put("year",aaa);
                 yeardata.put("value",ccc);
                 yearData.add(yeardata);

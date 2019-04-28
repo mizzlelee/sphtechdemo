@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:theme="@style/AppTheme"
+    android:background="@color/colorTrans"
+    >
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="301dp"
+        android:layout_height="266dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="55dp"
+        android:background="@color/colorTrans"
+        android:src="@drawable/sph_tech_sm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/loginMethod"
+        android:layout_width="234dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="89dp"
+        android:background="@color/colorAccent"
+        android:text="Login"
+        android:textColor="@color/colorTrans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
+</android.support.constraint.ConstraintLayout>

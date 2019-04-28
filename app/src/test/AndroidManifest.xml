@@ -14,18 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.sphtech.MainActivityTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".DataActivity">
-
-        </activity>
-
-        <activity android:name=".DataActivityTest">
+        <activity android:name="com.example.sphtech.DataActivityTest">
 
         </activity>
 

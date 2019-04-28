@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
-
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
