@@ -121,7 +121,6 @@ public class DataActivity extends AppCompatActivity {
             YearAdapter adapter = new YearAdapter(DataActivity.this,
                     R.layout.year, ydata);
             listView.setAdapter(adapter);
-            Log.e("displaydata","display : " + year + " " + value);
         }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -129,7 +128,26 @@ public class DataActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 YearData yd = ydata.get(position);
-                Log.e("onclick"," data: " + yd.getValue());
+                List<Map<String, String>> geteachquarterdatabyyear = new Sqlite(DataActivity.this).geteachquarterdatabyyear(yd.getYear().substring(6,10));
+                String finalresult = "";
+                for (Map<String, String> dialogdata : geteachquarterdatabyyear){
+                    String year = "Year: " + dialogdata.get("year") + "\n";
+                    String quarter = "Quarter: " + dialogdata.get("quarter") + "\n";
+                    String value = "Volume of mobile data: " + dialogdata.get("value") + "\n\n";
+
+                    finalresult = finalresult + year + quarter + value;
+
+                }
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(DataActivity.this);
+                builder2.setMessage(finalresult)
+                        .setTitle("Quarter data by year");
+
+                builder2.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                AlertDialog dialog2 = builder2.create();
+                dialog2.show();
             }
         });
     }

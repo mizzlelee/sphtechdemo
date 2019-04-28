@@ -85,6 +85,33 @@ public class Sqlite extends SQLiteOpenHelper {
         return yearData;
     }
 
+    public List<Map<String, String>> geteachquarterdatabyyear (String year) {
+        List<Map<String, String>> yearData = new ArrayList<Map<String, String>>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("quarterdata", new String[]{"year", "quarter", "volume_of_mobile_data"}, "year=?", new String[]{year}, null, null, null);
+            //Cursor cursor = db.rawQuery("SELECT year,SUM(volume_of_mobile_data) FROM quarterdata GROUP BY year",null);
+            cursor.moveToFirst();
+            do {
+                Map<String, String> yeardata = new HashMap<String, String>();
+                String aaa = cursor.getString(cursor.getColumnIndex("year"));
+                String bbb = cursor.getString(cursor.getColumnIndex("volume_of_mobile_data"));
+                String ccc = cursor.getString(cursor.getColumnIndex("quarter"));
+                yeardata.put("year",aaa);
+                yeardata.put("quarter",ccc);
+                yeardata.put("value",bbb);
+                yearData.add(yeardata);
+            }
+            while (cursor.moveToNext());
+            cursor.close();
+        } catch (Exception e) {
+            // Do nothing
+        }finally {
+            db.close();
+        }
+        return yearData;
+    }
+
     public boolean isDataExist (){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query("quarterdata", new String[]{"id"}, "id=?", new String[]{"55"}, null, null, null);
